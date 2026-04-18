@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Shopee-Ads助手 免费赞助",
+  "version": "1.0.0",
+  "description": "支持广告修改、自动改备货天数、预算与ROI调整、广告开关、批量ID处理与定时任务的 Shopee 主体功能助手。",
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://seller.shopee.tw/*"
+      ],
+      "js": [
+        "injector.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content.js"
+      ],
+      "matches": [
+        "https://seller.shopee.tw/*"
+      ]
+    }
+  ]
+}
